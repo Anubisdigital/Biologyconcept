@@ -1,0 +1,472 @@
+  
+   <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology Examination</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      line-height: 1.6;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #e8f5e9; /* Light green background */
+      color: #1b5e20; /* Dark green text */
+    }
+    input {
+      width: 90%;
+      padding: 6px;
+      margin: 5px 0;
+      border: 1px solid #a5d6a7; /* Green border */
+      border-radius: 5px;
+   background-color: #EEFFED;
+    }
+    button {
+      padding: 8px 14px;
+      background: #4caf50; /* Green button */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #388e3c; }
+    .result {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #a5d6a7; /* Green border for results */
+    }
+    .full { background: #c8e6c9; }   /* Correct: light green */
+    .half { background: #ffecb3; }   /* Partially correct: yellow (kept for contrast) */
+    .zero { background: #ffcdd2; }   /* Incorrect: red (kept for contrast) */
+    #score-container {
+      position: relative;
+      top: 10px;
+      right: 10px;
+      padding: 10px;
+      background: #4caf50;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Styles for the countdown timer */
+    #countdown {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      color: red;
+      font-size: 12pt;
+      font-weight: bold;
+      z-index: 1000;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="countdown">1:00:00</div>
+
+  <div id="score-container">Last Score: N/A</div>
+  <h2>Biology Exam (2 Marks Each)</h2>
+  <form id="qp" onsubmit="return false;">
+    <p>1. What is the powerhouse of the cell?</p>
+    <input type="text" name="q1"><br>
+
+    <p>2. What is the process of a cell dividing into two daughter cells?</p>
+    <input type="text" name="q2"><br>
+
+    <p>3. What is the function of the cell membrane?</p>
+    <input type="text" name="q3"><br>
+
+    <p>4. What is the main function of the Golgi apparatus?</p>
+    <input type="text" name="q4"><br>
+
+    <p>5. What is the biological term for a living thing?</p>
+    <input type="text" name="q5"><br>
+    
+    <p>6. What is the primary site of protein synthesis?</p>
+    <input type="text" name="q6"><br>
+
+    <p>7. What structure is found in plant cells but not animal cells?</p>
+    <input type="text" name="q7"><br>
+
+    <p>8. What is the main function of the kidneys?</p>
+    <input type="text" name="q8"><br>
+
+    <p>9. What is the main function of the liver?</p>
+    <input type="text" name="q9"><br>
+
+    <p>10. What is respiration in the context of living things?</p>
+    <input type="text" name="q10"><br>
+
+    <p>11. Which organelle contains the cell's genetic material?</p>
+    <input type="text" name="q11"><br>
+
+    <p>12. What is the control center of the cell?</p>
+    <input type="text" name="q12"><br>
+
+    <p>13. What organ is responsible for pumping blood throughout the body?</p>
+    <input type="text" name="q13"><br>
+
+    <p>14. What is the main function of the lungs?</p>
+    <input type="text" name="q14"><br>
+
+    <p>15. What is the jelly-like substance that fills the cell?</p>
+    <input type="text" name="q15"><br>
+    
+    <p>16. What is the primary function of the stomach in the digestive system?</p>
+    <input type="text" name="q16"><br>
+    
+    <p>17. How do green plants obtain their food?</p>
+    <input type="text" name="q17"><br>
+    
+    <p>18. Which organ is part of the central nervous system and acts as the body's command center?</p>
+    <input type="text" name="q18"><br>
+    
+    <p>19. What organ produces insulin to regulate blood sugar?</p>
+    <input type="text" name="q19"><br>
+    
+    <p>20. What is excretion?</p>
+    <input type="text" name="q20"><br>
+    
+    <p>21. What is the main function of chloroplasts?</p>
+    <input type="text" name="q21"><br>
+    
+    <p>22. Which large organ helps with vitamin D synthesis and protects the body from external threats?</p>
+    <input type="text" name="q22"><br>
+    
+    <p>23. Which organ is responsible for filtering waste from the blood to produce urine?</p>
+    <input type="text" name="q23"><br>
+    
+    <p>24. What is the main difference between prokaryotic and eukaryotic cells?</p>
+    <input type="text" name="q24"><br>
+    
+    <p>25. What is the main function of the small intestine?</p>
+    <input type="text" name="q25"><br>
+    <p>
+      26.which muscles make up the heart?</p><input type="text" name="q26"></br>
+    </p>
+    <br>
+<p>
+  27.What are three bones that make up the middle ear?</p><input type="text" name="q27"><br>
+  <p>
+    28.what are the tiny, balloon-like air sacs at the ends of the bronchioles? </p><input type="text" name="q28"><br> 
+    <p> 
+    29.Give a reason why animals don't carry out photoautotrophismor phototrophy?
+    </p><input type="text" name="q29"> <br>
+    <p>
+      30.Name the any one valve found in the heart? </p><input type="text" name="q30"><br>
+
+    <p>
+      31.Why do we Shiver during the cold?</p><input type="text" name="q31"><br>
+
+      
+    <p>
+32.Explain the difference in function between the pulmonary and systemic circulations.</p>
+<input type="text" name="q32"><br>
+<p>
+33.What is the role of the foramen ovale in fetal circulation and what does it become after birth?</p>
+<input type="text" name="q33"><br>
+ <p>
+
+34.The periosteum is a membrane that covers bone.</p>
+<input type="text" name="q34"><br>
+ <p>
+
+35.Describe its two main layers and their specific functions in bone growth and repair.</p>
+<input type="text" name="q35"><br>
+ <p>
+
+36.What is the difference between a spatial summation and a temporal summation at a postsynaptic neuron? </p>
+<input type="text" name="q36"><br>
+<p>
+37.How do these two processes affect the generation of an action potential?</p>
+<input type="text" name="q37"><br>
+ <p>
+
+38.Explain the negative feedback loop that regulates thyroid hormone production.</p>
+<input type="text" name="q38"><br>
+<p>
+ 39.Name the three key hormones and the glands involved in this pathway.</p>
+<input type="text" name="q39"><br>
+ <p>
+
+40.How do the partial pressures of oxygen and carbon dioxide drive gas exchange in the lungs (external respiration) and at the tissues (internal respiration)?</p>
+<input type="text" name="q40"><br>
+<p>
+
+41.Describe the specific roles of the liver, gallbladder, and pancreas in the digestion and absorption of fats.</p>
+<input type="text" name="q41"><br>
+ <p>
+
+42.The functional unit of the kidney is the nephron. Describe the three key processes that occur within the nephron to form urine: filtration, reabsorption, reabsorption, and secretion.</p>
+<input type="text" name="q42"><br>
+<p>
+
+ 43.Differentiate between spermatogenesis and spermiogenesis.</p>
+<input type="text" name="q43"><br>
+
+ <p>
+
+ 44.Where do these processes occur within the male reproductive system?</p>
+<input type="text" name="q44"><br>
+<p>
+
+45.How do T cells differentiate into helper T cells, cytotoxic T cells, and memory T cells?</p>
+<input type="text" name="q45"><br>
+<p>
+
+
+46.What is the role of antigen-presenting cells (APCs) in this process?</p>
+<input type="text" name="q46"><br>
+
+
+ <p>
+ 47.Describe the sliding filament model of muscle contraction, including the roles of ATP, actin, myosin, and calcium ions.</p>
+<input type="text" name="q47"><br>
+<p>
+48.What is the function of tropomyosin and troponin?</p>
+<input type="text" name="q48"><br>
+
+
+ <p>
+49.How does it receive nutrients and remove waste?</p>
+<input type="text" name="q49"><br>
+
+ <p>
+ 50.Differentiate between apocrine and eccrine sweat glands based on their location, function, and the composition of their secretions.</p>
+<input type="text" name="q50"><br>
+
+
+    <button type="button" onclick="check()">Submit</button>
+  </form>
+
+  <h3>Results</h3>
+  <div id="results"></div>
+
+  <script>
+    const refSrc = [
+      "Mitochondrion",
+      "Mitosis",
+      "Cell membrane",
+      "Golgi apparatus",
+      "Organism",
+      "Ribosome",
+      "Cell wall",
+      "Kidney",
+      "Liver",
+      "Cellular respiration",
+      "Nucleus",
+      "Cell nucleus",
+      "Heart",
+      "Lung",
+      "Cytoplasm",
+      "Stomach",
+      "Photosynthesis",
+      "Brain",
+      "Pancreas",
+      "Excretion",
+      "Chloroplast",
+      "Skin",
+      "Kidney",
+      "Prokaryotic and eukaryotic cells",
+      "Small intestine", 
+      "the heart", 
+      "middle ear", 
+      "Alveoli", 
+      "photoautotrophism or phototrophy", 
+      "valves", 
+      "Shivering", 
+   "Cardiovascular", 
+   "Cardiovascular", 
+"Skeletal", 
+ "Skeletal", 
+ "Nervous",  
+ "Nervous", 
+"Endocrine", 
+   "Endocrine", 
+   "Respiratory", 
+      "Respiratory", 
+"Digestive", 
+ "Urinary", 
+ "Reproductive", 
+  "Reproductive", 
+"Lymphatic/Immune", 
+"Lymphatic/Immune", 
+ "Muscular", 
+ "Cellular", 
+ "Glandular"
+ ];
+
+    let totalMarks = 0;
+    const form = document.getElementById("qp");
+
+    async function getAns(title) {
+      const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
+      try {
+        const res = await fetch(url);
+        if (!res.ok) return { text: "No Wikipedia answer found.", link: url };
+        const data = await res.json();
+        return {
+          text: data.extract || "No summary available.",
+          link: data.content_urls?.desktop?.page || url
+        };
+      } catch (e) {
+        return { text: "Error fetching from Wikipedia.", link: url };
+      }
+    }
+
+    async function check() {
+      const res = document.getElementById("results");
+      let total = 0;
+      let result = "";
+
+      for (let i = 0; i < refSrc.length; i++) {
+        const userAns = form[`q${i+1}`].value.toLowerCase().trim();
+        const wiki = await getAns(refSrc[i]);
+
+        const ref = wiki.text.toLowerCase();
+        let marks = 0;
+        if (userAns && ref) {
+          let hits = 0;
+          ref.split(" ").forEach(word => {
+            if (userAns.includes(word)) hits++;
+          });
+          if (hits >= 4) marks = 2;
+          else if (hits >= 2) marks = 1;
+        }
+
+        total += marks;
+
+        let cssClass = marks === 2 ? "full" : marks === 1 ? "half" : "zero";
+
+        result += `
+        <div class="result ${cssClass}">
+          <b>Q${i+1}:</b> ${marks}/2 marks <br>
+          <i>Your answer:</i> ${userAns || "(blank)"} <br><br>
+          <i>Answer (Wikipedia):</i> ${wiki.text} <br>
+          <small>Source: <a href="${wiki.link}" target="_blank">${refSrc[i]}</a></small>
+        </div>
+        `;
+      }
+
+      totalMarks = total;
+      document.getElementById("score-container").textContent = `Last Score: ${totalMarks}/100`;
+      res.innerHTML = result;
+    }
+
+    function clearAnswers() {
+      for (let i = 0; i < form.elements.length; i++) {
+        const element = form.elements[i];
+        if (element.tagName === 'INPUT' && element.type === 'text') {
+          element.value = '';
+        }
+      }
+    }
+
+    // Countdown Timer Logic
+    const countdownElement = document.getElementById("countdown");
+    const totalTime = 60 * 60; // 60 minutes in seconds
+    let timeLeft = totalTime;
+
+    const timer = setInterval(() => {
+      let hours = Math.floor(timeLeft / 3600);
+      let minutes = Math.floor((timeLeft % 3600) / 60);
+      let seconds = timeLeft % 60;
+
+      hours = String(hours).padStart(2, '0');
+      minutes = String(minutes).padStart(2, '0');
+      seconds = String(seconds).padStart(2, '0');
+
+      countdownElement.textContent = `${hours}:${minutes}:${seconds}`;
+      
+      timeLeft--;
+
+      if (timeLeft < 0) {
+        clearInterval(timer);
+        countdownElement.textContent = "Time's up!";
+        check().then(() => {
+          clearAnswers();
+          countdownElement.style.color = "black";
+          countdownElement.style.backgroundColor = "white";
+        });
+      }
+    }, 1000);
+  </script>   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      line-height: 1.6;
+      -webkit-tap-highlight-color: transparent;
+      background-color: #e8f5e9; /* Light green background */
+      color: #1b5e20; /* Dark green text */
+    }
+    input {
+      width: 90%;
+      padding: 6px;
+      margin: 5px 0;
+      border: 1px solid #a5d6a7; /* Green border */
+      border-radius: 5px;
+      background-color: #EEFFED;
+    }
+    button {
+      padding: 8px 14px;
+      background: #4caf50; /* Green button */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background: #388e3c; }
+    .result {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #a5d6a7; /* Green border for results */
+    }
+    .full { background: #c8e6c9; }   /* Correct: light green */
+    .half { background: #ffecb3; }   /* Partially correct: yellow (kept for contrast) */
+    .zero { background: #ffcdd2; }   /* Incorrect: red (kept for contrast) */
+    #score-container {
+      position: relative;
+      top: 10px;
+      right: 10px;
+      padding: 10px;
+      background: #4caf50;
+      color: white;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    /* Styles for the countdown timer */
+    #countdown {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      color: red;
+      font-size: 12pt;
+      font-weight: bold;
+      z-index: 1000;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="countdown"></div>
+<div id="score-container">Score: 0</div>
+<button onclick="location.href='board page.html'" style="margin-bottom: 20px;">Board page</button>
+
+<label for="userName">Enter your name:</label>
+<input type="text" id="userName" placeholder="Your Name">
+
+</body>
+</html>
+
+
+
