@@ -1,0 +1,164 @@
+
+#yem{
+  background-color:black ;
+   background-size:400px 700px;
+  font-size:50pt; 
+  font-weight:bold;
+  position:absolute;
+  top:20px;
+}
+#top{background-color:lime;
+background-size:10px 400px;
+font-size:15pt;
+margin-top:1px;
+margin-left:1px;
+margin-right:1px;color:black;
+}
+
+
+
+
+
+
+#fead{
+ font-size:55pt;
+ font-weight:bold;
+ color: #B0FFD1;
+ position:relative; top:50px;
+}
+  .paper1{
+    font-size:10pt ;
+    font-weight:bold;
+        color: #999AA5;
+
+   }
+   .paper1 h3{font-size:30pt;       color: #2e8b57;margin:1px;
+}
+   #bib{
+               background-color: #496E4D;
+             height: 100vh;
+            max-width: 800px;
+
+    background-attachment:fixed;
+  
+  
+   }
+   #dis2{background-image:url("back1.jpg") ;       background-color:rgba(0, 0, 0, 0.6);
+
+ 
+     background-size:cover;
+background-attachment:fixed;
+     .background-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-size: cover;
+    opacity: 0.5; /* This is the key line that controls the transparency */
+    z-index: -1;
+    
+}
+
+   }
+  
+        .generic-cursive {
+            font-family: cursive; /* Browser will choose a default cursive font */
+       font-size:20pt;
+       
+        }
+   
+        .generic-monospace {
+            font-family: monospace; /* Browser will choose a default monospace font */
+        }
+        #back2{
+         background-color:white;
+          
+        }
+        /* Basic page styling for demonstration */
+h1 {
+    margin: 0;
+    padding-bottom: 80px; /* This padding is important to prevent content from being hidden behind the fixed buttons */
+    font-family: sans-serif;
+    text-align: center;
+}
+
+/* Styles for the fixed button container */
+.fixed-buttons {
+    position: fixed; /* This makes the container stay in a fixed position on the screen */
+    bottom: 0;      /* Aligns the container to the bottom of the screen */
+    left: 0;
+    width:100%;
+    display: flex;
+    justify-content: space-around; /* Distributes buttons evenly */
+    align-items: center;
+    background-color: #333; /* Dark background for the button bar */
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow on top */
+}
+
+/* Styles for each individual btn */
+.icon-button {
+    color: #fff; /* White text and icons */
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column; /* Stacks the icon on top of the text */
+    align-items: center;
+    padding: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover and focus effects for the buttons */
+.icon-button:hover,
+.icon-button:focus {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* Styles for the icons within the buttons */
+.icon-button i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+ #team{ font-size:30pt;
+        
+     text-align: center;
+         font-weight: bold;
+    margin-top: 9px;
+    text-align: center;
+    background-image: url("Tear.jpg");
+   padding-top: 30px;
+      padding-right: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      margin-top: 0p x;
+      margin-bottom:0px;
+      background-size:400px 580px;
+      font-size:20px;
+      color:White;
+    }
+    #just{background:#41424F
+    ;font-size: 12pt;
+          background-size:80px 100px;
+boader: 3px solid red;
+
+ p:hover {
+      color: gray;
+      font-size: 20px;
+    }
+      /* optional; specifies the duration of the effect */
+    p {
+      transition-duration: 2s;
+    }
+    }
+    
+    
+    /* This is a CSS reset to remove default browser margins and padding */
+html, body {
+    margin:0;
+    padding: 0;
+    height: 100%;
+}
