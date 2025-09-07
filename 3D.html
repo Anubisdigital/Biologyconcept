@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>3d floating cube</title>
+     <<link rel="stylesheet" href="style.css">
+     <style>
+         /* css for the body and the scene */
+         body {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             min-height: 100vh;
+             background-color: #1a1a1a; /* dark background to make the cube stand out */
+             overflow: hidden; /* hide scrollbars */
+             margin: 0;
+             perspective: 1000px; /* essential for 3d effect */
+         }
+ 
+         /* the container for the 3d cube */
+         .cube-container {
+             width: 200px;
+             height: 200px;
+             transform-style: preserve-3d; /* allows child elements to be positioned in 3d space */
+             position: relative;
+             animation: float 10s infinite ease-in-out, rotate 8s infinite linear;
+         }
+ 
+         /* the styles for each face of the cube */
+         .face {
+             position: absolute;
+             width: 100%;
+             height: 100%;
+             background-image: url('anubis.jpg'); /* the image you provided */
+             background-size: cover;
+             background-position: center;
+             border:none; /* optional border for definition */
+         }
+ 
+         /* position and rotate each face to form a cube */
+         .front  { transform: rotatey(0deg) translatez(100px); }
+         .back   { transform: rotatey(180deg) translatez(100px); }
+         .right  { transform: rotatey(91deg) translatez(100px); }
+         .left   { transform: rotatey(-90deg) translatez(100px); }
+         .top    { transform: rotatex(90deg) translatez(100px); }
+         .bottom { transform: rotatex(-90deg) translatez(100px); }
+         
+         /* keyframe animations for the floating and rotating effect */
+         @keyframes rotate {
+             0%   { transform: rotatex(0deg) rotatey(0deg); }
+             100% { transform: rotatex(360deg) rotatey(360deg); }
+         }
+ 
+         @keyframes float {
+             0%   { transform: translatey(0px) scale(1); }
+             50%  { transform: translatey(-50px) scale(1.05); }
+             100% { transform: translatey(0px) scale(1); }
+         }
+ 
+     </style>
+ </head>
+ <body>
+  <p style="       background-color:rgba(0, 0, 0, 0.6);
+font-size:12pt; position:absolute;top:20px;color: white;text-align:center;">Try to screen shot it when in the correct position and focus</p>
+     <div class="cube-container">
+         <div class="face front"></div>
+         <div class="face back"></div>
+         <div class="face right"></div>
+         <div class="face left"></div>
+         <div class="face top"></div>
+         <div class="face bottom"></div>
+     </div>
+ <p style="       background-color:rgba(0, 0, 0, 0.6);
+font-size:12pt; position:absolute;top:500px;color: white;text-align:center;">Thank you for  supporting ANUBIS DIGITAL.agl</p>
+     <script>
+         // no javascript is needed for this basic floating and rotating effect.
+         // it's all handled by css for better performance.
+     </script>
+                 <div class="fixed-buttons">
+        <a href="note pad.html" class="icon-button" aria-label="note pad">
+            <i class="fas fa-sticky-note"></i>
+            <span>note pad</span>
+        </a>
+        <a href="questions.html" class="icon-button" aria-label="Questions">
+            <i class="fas fa-question-circle"></i>
+            <span>Exam</span>
+        </a>
+        <a href="paper2.html" class="icon-button" aria-label="About">
+            <i class="fas fa-info-circle"></i>
+            <span>main page</span>
+        </a>
+<a href="more.html" class="icon-button" aria-label="more" ><i> <span style="font-size:12pt;">more info</i></span></a>
+    </div>
+ </body>
+ </html>
