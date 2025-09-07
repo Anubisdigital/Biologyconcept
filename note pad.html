@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fun Notepad (All-in-One)</title>
+        <link rel="stylesheet" href="style.css">
+        <div class="fixed-buttons">
+        <a href="paper2.html" class="icon-button" aria-label="note pad">
+            <i class="fas fa-sticky-note"></i>
+            <span>main page</span>
+        </a>
+        <a href="questions.html" class="icon-button" aria-label="Questions">
+            <i class="fas fa-question-circle"></i>
+            <span>Exam</span>
+        </a>
+        
+        </a>
+<a href="more.html" class="icon-button" aria-label="more" ><i> <span style="font-size:12pt;">more info</i></span></a>
+    </div>
+    <hr>
+    
+    <style>
+        /* --- CSS STYLES START HERE --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to the top, allowing content to flow down */
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        .container {
+            background-color: #f0f8ff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 9,0, 0.5);
+            width: 100%;
+            max-width: 600px; /* Limit width for better readability */
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        #noteInput {
+            width: calc(100% - 20px); /* Account for padding */
+            min-height: 150px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            resize: vertical; /* Allow vertical resizing by user */
+            background-color: #f0f8ff;
+        }
+
+        #saveNoteBtn {
+            background-color: #4CAF50; /* Green */
+            color: #496E4C;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        #saveNoteBtn:hover {
+            background-color: #45a049;
+        }
+
+        #notesContainer {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            text-align: left;
+        }
+
+        .note-item {
+            background-color: #f0f8ff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            word-wrap: break-word; /* Ensure long words break */
+            white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+            box-shadow: 5px 5px 5px rgba(0, 5, 0, 0.5);
+        }
+
+        .note-content {
+            flex-grow: 1;
+            margin-right: 15px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .delete-btn {
+            background-color: #dc3545; /* Red */
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+        
+        /* --- CSS STYLES END HERE --- */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 My Fun Notepad</h1>
+        <textarea  id="noteInput" placeholder="Make notes not to remember but to test what you have understood.."></textarea>
+        <button id="saveNoteBtn">Save Note</button>
+        <div id="notesContainer">
+            </div>
+    </div>
+
+    <script>
+        /* --- JAVASCRIPT CODE START HERE --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            const noteInput = document.getElementById('noteInput');
+            const saveNoteBtn = document.getElementById('saveNoteBtn');
+            const notesContainer = document.getElementById('notesContainer');
+
+            // Function to load notes from Local Storage
+            function loadNotes() {
+                notesContainer.innerHTML = ''; // Clear existing notes
+                const notes = JSON.parse(localStorage.getItem('notes')) || []; // Get notes or empty array
+                notes.forEach((note, index) => {
+                    addNoteToDOM(note, index);
+                });
+            }
+
+            // Function to add a note to the DOM (display on screen)
+            function addNoteToDOM(noteText, index) {
+                const noteItem = document.createElement('div');
+                noteItem.classList.add('note-item');
+                noteItem.dataset.index = index; // Store index for easy deletion
+
+                const noteContent = document.createElement('p');
+                noteContent.classList.add('note-content');
+                noteContent.textContent = noteText; // Display the note text
+
+                const deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.addEventListener('click', () => {
+                    deleteNote(index);
+                });
+
+                noteItem.appendChild(noteContent);
+                noteItem.appendChild(deleteBtn);
+                notesContainer.appendChild(noteItem);
+            }
+
+            // Function to save a new note
+            saveNoteBtn.addEventListener('click', () => {
+                const noteText = noteInput.value.trim(); // Get text and remove leading/trailing whitespace
+                if (noteText) {
+                    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+                    notes.push(noteText); // Add new note
+                    localStorage.setItem('notes', JSON.stringify(notes)); // Save updated notes
+                    noteInput.value = ''; // Clear input field
+                    loadNotes(); // Reload notes to show the new one
+                } else {
+                    alert('Please write something before saving!');
+                }
+            });
+
+            // Function to delete a note
+            function deleteNote(indexToDelete) {
+                let notes = JSON.parse(localStorage.getItem('notes')) || [];
+                notes.splice(indexToDelete, 1); // Remove the note at the specified index
+                localStorage.setItem('notes', JSON.stringify(notes)); // Save updated notes
+                loadNotes(); // Reload notes to reflect the deletion
+            }
+
+            // Load notes when the page first loads
+            loadNotes();
+        });
+        /* --- JAVASCRIPT CODE END HERE --- */
+    </script><br>
+<br>
+<br><br>
+
+<br><br>
+
+<br>
+
+</body>
+</html>
