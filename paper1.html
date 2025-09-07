@@ -1,0 +1,771 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biology centre of study</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+      color: #333;
+      line-height: 1.6;
+    }
+    .hero {
+      background: linear-gradient(rgba(0, 51, 0, 0.8), rgba(0, 51, 0, 0.6)), url('https://images.unsplash.com/photo-1549410196-857501a4e1e3') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size:35px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.5s ease-out;position:sticky; top:10px;
+
+    }
+    .hero p {
+      font-size:15px;
+      max-width: 800px;
+      animation: fadeInUp 1.5s ease-out; position:sticky; top:200px;
+    }
+    .feature-item {
+      background: #fff;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 800px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .feature-item h3 {
+      color: #2e8b57;
+      font-size: 1.5rem;
+    }
+    .feature-item button {
+      background-color: #2e8b57;
+      color: white;
+      padding: 15px 15px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      margin-top:30px;
+      margin-left:50px;
+      border: none;
+      cursor: pointer;width: 200px;
+    }
+    .feature-item button:hover {
+      background-color: #3cb371;
+    }
+    .link-list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        margin-top: 20px;
+    }
+    .link-list li {
+        margin-bottom: 10px;
+    }
+    .link-list a {
+        color: #2e8b57;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    .link-list a:hover {
+        text-decoration: underline;
+    }
+    .quiz-container {
+        display: none;
+        margin-top: 20px;
+    }
+    .quiz-question {
+        margin-bottom: 16px;
+    }
+    .quiz-question label {
+        display: block;
+        margin-left: 20px;
+        margin-bottom: 5px;
+        cursor: pointer;
+    }
+    .quiz-question input[type="radio"] {
+        margin-right: 10px;
+    }
+    .quiz-complete {
+        font-size: 8pt;
+        color: green;
+        font-weight: bold;
+        display: none;
+        margin-top: 10px;
+    }
+        a:link {
+      color:#437CC6 ;
+    }
+    a:visited {
+      color: #31912F;}
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Welcome,Let us explore Biology together</h1>
+    <p id="greeting-message"></p></div>
+  </div>
+  <div class="feature-item">
+    <h3>Introduction to Biology</h3>
+    <details>
+      <summary></summary>
+      <a href="paper2.html#branch">Branches of Biology</a><br><br>
+      <a href="paper2.html#why">Why we study biology</a><br><br>
+      <a href="paper2.html#x-tics">Characteristics of livingthings</a><br><br>
+      <a href="paper2.html#tools">Tools used in biology</a>
+      <br>
+      <button id="intro">Quiz</button>
+      <div id="intro-quiz-container" class="quiz-container"></div>
+      <div id="intro-quiz-completed" class="quiz-complete">Quiz Completed</div>
+    </details>
+  </div>
+
+  <div class="feature-item">
+    <h3>The Cell: The Basic Unit of Life</h3>
+    <details>
+      <summary></summary>
+      <a href="paper2.html#cellst">cell structure</a><br><br>
+      <a href="paper2.html#red">Red blood cells</a><br><br>
+      <a href="paper2.html#white">White blood cells</a><br><br>
+      <a href="paper2.html#other">Other cells</a><br><br>
+      <a href="paper2.html#fact1.0">Science facts about the cells</a><br>
+      <button id="cell">Quiz</button>
+      <div id="cell-quiz-container" class="quiz-container"></div>
+      <div id="cell-quiz-completed" class="quiz-complete">Quiz Completed</div>
+    </details>
+  </div>
+<div class="feature-item">
+  <h3>Organs</h3>
+<details>
+  <summary></summary>
+<a href=" paper2.html#heart">The mammalian heart</a>
+<br><br>
+<a href="paper2.html#bloodp">Blood pressure</a>
+<br><br>
+<a href="paper2.html#blood">Blood</a><br><br>
+
+<a href="paper2.html#the eye">The mammalian eye</a><br><br>
+<a href="paper2.html#form">Image formation on the retina</a><br><br>
+<a href="paper2.html#defect">Eye defects</a><br><br>
+<a href="paper2.html#ear">Mammalian ear</a><br><br>
+<a href="paper2.html#balance">The process of balancing</a><br><br>
+<a href="paper2.html#disorder">Common ear disorders</a><br><br>
+<a href="paper2.html#tongue">The tongue</a><br><br>
+<a href="paper2.html#nose">The nose</a><br><br>
+<a href="paper2.html#liver">The liver </a><br><br>
+<a href="paper2.html#functionl">Functions of the liver</a><br><br>
+<a href="paper2.html#skin">The skin</a><br><br>
+<a href="paper2.html#heat">Control of body temperature</a><br><br>
+<a href="paper2.html#heat2">Control of heat in ectothermic animals</a><br><br>
+<a href="paper2.html#stomach">The stomach</a><br><br>
+<button id="organ">Quiz</button>
+<div id="organ-quiz-container" class="quiz-container"></div>
+<div id="organ-quiz-completed" class="quiz-complete">Quiz Completed</div>
+</details>
+</div>
+<div class="feature-item">    <h3>Systems</h3>
+<details>
+    <summary></summary>
+    <a href="paper2.html#ly"> The Lymphatic system</a>
+<br>
+<br>
+ <a href="paper2.html#digestive">The digestive system</a>
+ <br>
+<br>
+<a href="paper2.html#1.1">Interesting Science Facts </a>
+ <br>
+<br>
+<a href="paper2.html#resp">Respiratory system</a>
+<br>
+<br>
+<a href="paper2.html#1.2">Interesting science facts </a>
+<br>
+<br>
+<a href="paper2.html#reproductive">Reproductive system</a>
+<br>
+<br>
+<a href="paper2.html#male">Male reproductive system</a>
+<br>
+<br>
+<a href="paper2.html#female">Female reproductive system</a><br>
+<br>
+
+<a href="paper2.html#excretion">Exctration in man</a>
+<br>
+<br>
+<a href="paper2.html#nep">Nephrone</a>
+<br>
+<br>
+<a href="paper2.html#kidney">The kidney</a><br>
+<br>
+
+<a href="paper2.html#plantex">Exctration in plants</a>
+ <br>
+<br>
+<a href="paper2.html#homeo">Homeostasis
+</a><br>
+<br>
+<a href="paper2.html#bloodv">Blood vessels</a><br><br>
+
+<a href="paper2.html#urine">The Urinary System</a><br><br>
+ <a href="paper2.html#urine1">Components of the System</a><br><br>
+<a href="paper2.html#urine2">Key Functions</a><br><br>
+<a href="paper2.html#urine3">Common Issues
+</a><br><br>
+<a href="paper2.html#neuron">The Nervous System</a><br><br>
+<a href="paper2.html#neuron1">Peripheral Nervous System (PNS)</a><br><br>
+<a href="paper2.html#mu">The Musculoskeletal System
+​</a><br><br>
+<a href="paper2.html#mu1">The Skeletal System: More Than Just a Framework</a><br><br>
+ <a href="paper2.html#mu2">The Muscular System: The Engine of Movement
+​</a><br><br>
+ <a href="paper2.html#tem">The Endocrine System</a><br><br>
+ <a href="paper2.html#tem1">The Integumentary System</a><br><br>
+ <a href="paper2.html#tem2">The Dermis and Beyond
+​</a><br><br>
+      
+      <button id="system">Quiz</button>      <div id="system-quiz-container" class="quiz-container"></div>
+
+       <div id="system-quiz-completed" class="quiz-complete">Quiz Completed</div>
+
+
+</details>
+</div>
+<div class="feature-item">
+    <h3>
+      Classification of livingthings
+    </h3>
+<details>
+    <summary></summary>
+     <a href="paper2.html#class">Classification of Living Things</a>
+     <br>
+     <br>
+     <a href="paper2.html#class1">Binomial Nomenclature</a>     <br>
+     <br>
+     <a href="paper2.html#class2">Why is Classification Important?</a>
+     <br>
+     <br>
+      <a href="paper2.html#class3">The Importance of a Robust Classification System</a>
+     <br>
+     <br>
+<button id="classification">Quiz</button>
+<div id="classification-quiz-container" class="quiz-container"></div>
+<div id="classification-quiz-completed" class="quiz-complete">Quiz Completed</div>
+
+</details>
+</div>
+<div class="feature-item">
+  <h3> Genetics </h3>
+    <details>
+        <summary>
+        </summary>
+             <a href="paper2.html#gen">Genetics</a>
+     <br>
+     <br>     <a href="paper2.html#gen1">key Concepts in Heredity</a>
+     <br>
+     <br>     <a href="paper2.html#gen2">The Work of Gregor Mendel</a>
+     <br>
+     <br>     <a href="paper2.html#gen3">The Blueprint of Life: DNA, Genes, and Chromosomes</a>
+     <br>
+     <br>     <a href="paper2.html#gen4">Key Terminology in Heredity</a>
+     <br>
+     <br>     <a href="paper2.html#gen5">Beyond Mendel: Complex Inheritance Patterns</a>
+       <br>
+     <br>
+        
+    
+    <button id="genetics">Quiz</button>
+<div id="genetics-quiz-container" class="quiz-container"></div>
+<div id="genetics-quiz-completed" class="quiz-complete">Quiz Completed</div>
+    </details>
+    </div>
+    <div class="feature-item"><h3>
+        Ecology and Interdependence
+    </h3>
+        <details>
+           <summary></summary>
+               <a href="paper2.html#ecol">Ecology and Interdependence</a>
+     <br>
+     <br>               <a href="paper2.html#ecol1">Predator-Prey Relationships</a>
+     <br>
+     <br> 
+                <a href="paper2.html#ecol2">Food Chains and Trophic Levels</a>     <br>
+     <br> 
+               <a href="paper2.html#ecol3">The Critical Role of Decomposers</a>
+
+        <button id="ecology">Quiz</button>
+<div id="ecology-quiz-container" class="quiz-container"></div>
+<div id="ecology-quiz-completed" class="quiz-complete">Quiz Completed</div>
+      </details>
+
+    </div>
+<nav id="down">
+    <a href="questions.html">The Exam</a>
+    <a href="note pad.html">Notepad</a>
+    <a href="paper2.html">Main Page</a>
+    <a href="random.html">Nature and Science Quiz</a>
+</nav>
+
+<script>
+    function updateGreeting() {
+        const date = new Date();
+        const hour = date.getHours();
+        let greeting;
+
+        if (hour >= 5 && hour < 12) {
+            greeting = "Good morning! The early bird gets the worm, and today is a great day to learn.";
+        } else if (hour >= 12 && hour < 18) {
+            greeting = "Good afternoon! Time for some deeper exploration in the world of life sciences.";
+        }
+        else if( hour>= 18 && hour < 22) {
+            greeting = "Good evening! Settle in for some focused study.";
+        }
+        else {
+            greeting = "It's late, but the pursuit of knowledge never rests. Happy learning!";
+        }
+
+        const greetingElement = document.getElementById('greeting-message');
+        if (greetingElement) {
+            greetingElement.textContent = greeting;
+        }
+    }
+
+    const quizzes = {
+        intro: [
+            {
+                question: "Which branch of biology focuses on the study of microorganisms?",
+                options: ["Botany", "Zoology", "Microbiology", "Ecology"],
+                answer: "Microbiology"
+            },
+            {
+                question: "What is the study of plants called?",
+                options: ["Mycology", "Botany", "Entomology", "Genetics"],
+                answer: "Botany"
+            },
+            {
+                question: "Which characteristic of living things involves the ability to respond to stimuli?",
+                options: ["Growth", "Reproduction", "Irritability", "Metabolism"],
+                answer: "Irritability"
+            },
+            {
+                question: "What tool is primarily used to observe microscopic organisms?",
+                options: ["Telescope", "Microscope", "Stethoscope", "Barometer"],
+                answer: "Microscope"
+            },
+            {
+                question: "The study of the relationship between living organisms and their environment is known as?",
+                options: ["Anatomy", "Physiology", "Taxonomy", "Ecology"],
+                answer: "Ecology"
+            }
+        ],
+
+         ecology: [
+            {
+                question: "What is the term for a group of organisms of the same species living in a particular area?",
+                options: ["Community", "Population", "Ecosystem", "Biome"],
+                answer: "Population"
+            },
+            {
+                question: "Which of the following describes the role an organism plays in its community, including its interactions with other species and its environment?",
+                options: ["Habitat", "Niche", "Ecosystem", "Community"],
+                answer: "Niche"
+            },
+            {
+                question: "In a food chain, what type of organism consumes producers?",
+                options: ["Primary consumer", "Secondary consumer", "Decomposer", "Producer"],
+                answer: "Primary consumer"
+            },
+            {
+                question: "The symbiotic relationship where one organism benefits and the other is neither harmed nor helped is called what?",
+                options: ["Parasitism", "Mutualism", "Commensalism", "Predation"],
+                answer: "Commensalism"
+            },
+            {
+                question: "What is the process by which a forest grows back after a fire, starting from bare ground?",
+                options: ["Primary succession", "Secondary succession", "Climax community", "Ecological pyramid"],
+                answer: "Secondary succession"
+            },
+            {
+                question: "Which biome is characterized by low rainfall, high temperatures, and sparse vegetation adapted to conserve water?",
+                options: ["Tundra", "Tropical rainforest", "Desert", "Grassland"],
+                answer: "Desert"
+            },
+            {
+                question: "What is the total mass of living organisms in a given area or ecosystem?",
+                options: ["Trophic level", "Biogeochemical cycle", "Carrying capacity", "Biomass"],
+                answer: "Biomass"
+            },
+            {
+                question: "A limiting factor is a resource or environmental condition that limits the growth of a population. Which of these is a density-dependent limiting factor?",
+                options: ["Flood", "Drought", "Disease", "Natural disaster"],
+                answer: "Disease"
+            },
+            {
+                question: "What is the name for the series of interconnected food chains in an ecosystem?",
+                options: ["Food pyramid", "Trophic level", "Food web", "Food chain"],
+                answer: "Food web"
+            },
+            {
+                question: "Which of the following is an example of an abiotic factor in an ecosystem?",
+                options: ["Bacteria", "Fungi", "Sunlight", "Plants"],
+                answer: "Sunlight"
+            }
+        ], 
+                genetics: [
+            {
+                question: "What is the study of heredity and the variation of inherited characteristics called?",
+                options: ["Ecology", "Genetics", "Taxonomy", "Physiology"],
+                answer: "Genetics"
+            },
+            {
+                question: "Who is known as the 'father of modern genetics' for his work with pea plants?",
+                options: ["Charles Darwin", "Gregor Mendel", "Carl Linnaeus", "Louis Pasteur"],
+                answer: "Gregor Mendel"
+            },
+            {
+                question: "Which of the following describes a segment of DNA that codes for a specific protein or trait?",
+                options: ["Chromosome", "Gene", "Allele", "Locus"],
+                answer: "Gene"
+            },
+            {
+                question: "If an organism has two identical alleles for a particular trait, it is said to be what?",
+                options: ["Heterozygous", "Homozygous", "Dominant", "Recessive"],
+                answer: "Homozygous"
+            },
+            {
+                question: "A cross between a true-breeding tall plant (TT) and a true-breeding short plant (tt) would result in offspring with which genotype?",
+                options: ["TT", "Tt", "tt", "TT and Tt"],
+                answer: "Tt"
+            },
+            {
+                question: "What is the observable, physical expression of a genetic trait called?",
+                options: ["Genotype", "Phenotype", "Allele", "Dominance"],
+                answer: "Phenotype"
+            },
+            {
+                question: "In a Punnett square, the letters on the outside represent which of the following?",
+                options: ["Offspring genotypes", "Parent phenotypes", "Gametes", "F1 generation"],
+                answer: "Gametes"
+            },
+            {
+                question: "What is the process where a cell divides into two identical daughter cells, each with the same number of chromosomes?",
+                options: ["Meiosis", "Mitosis", "Transcription", "Translation"],
+                answer: "Mitosis"
+            },
+            {
+                question: "Which of the following is an example of a dominant allele?",
+                options: ["A allele for a recessive trait", "An allele that is only expressed in a homozygous state", "An allele that masks the expression of another allele", "An allele that is found on the Y chromosome"],
+                answer: "An allele that masks the expression of another allele"
+            },
+            {
+                question: "If a homozygous dominant parent (AA) and a homozygous recessive parent (aa) are crossed, what percentage of the offspring will have the dominant phenotype?",
+                options: ["0%", "25%", "50%", "100%"],
+                answer: "100%"
+            }
+        ], 
+        classification: [
+            {
+                question: "What is the science of classifying, naming, and describing organisms called?",
+                options: ["Ecology", "Taxonomy", "Physiology", "Genetics"],
+                answer: "Taxonomy"
+            },
+            {
+                question: "Who is considered the 'father of modern taxonomy'?",
+                options: ["Charles Darwin", "Gregor Mendel", "Carl Linnaeus", "Louis Pasteur"],
+                answer: "Carl Linnaeus"
+            },
+            {
+                question: "Which of the following is the most inclusive (broadest) taxonomic rank?",
+                options: ["Family", "Order", "Class", "Kingdom"],
+                answer: "Kingdom"
+            },
+            {
+                question: "In binomial nomenclature, what two parts make up the scientific name of an organism?",
+                options: ["Genus and species", "Family and genus", "Order and class", "Kingdom and phylum"],
+                answer: "Genus and species"
+            },
+            {
+                question: "Which taxonomic rank comes directly after 'Class' and before 'Family'?",
+                options: ["Order", "Phylum", "Genus", "Species"],
+                answer: "Order"
+            },
+            {
+                question: "What is the correct order of the main taxonomic ranks from most inclusive to most specific?",
+                options: ["Kingdom, Phylum, Class, Order, Family, Genus, Species", "Species, Genus, Family, Order, Class, Phylum, Kingdom", "Phylum, Kingdom, Class, Order, Family, Genus, Species", "Kingdom, Class, Phylum, Order, Family, Genus, Species"],
+                answer: "Kingdom, Phylum, Class, Order, Family, Genus, Species"
+            },
+            {
+                question: "Which kingdom includes organisms that are multicellular, eukaryotic, and heterotrophic?",
+                options: ["Plantae", "Fungi", "Protista", "Animalia"],
+                answer: "Animalia"
+            },
+            {
+                question: "The scientific name for humans is *Homo sapiens*. What is the genus?",
+                options: ["sapiens", "Homo", "Hominidae", "Mammalia"],
+                answer: "Homo"
+            },
+            {
+                question: "Which of the following is not a domain in the three-domain system of classification?",
+                options: ["Archaea", "Bacteria", "Eukarya", "Protista"],
+                answer: "Protista"
+            },
+            {
+                question: "A group of organisms that can interbreed and produce fertile offspring is a defining characteristic of which taxonomic rank?",
+                options: ["Genus", "Family", "Species", "Order"],
+                answer: "Species"
+            }
+        ], 
+
+          cell: [
+            {
+             question: "What is the powerhouse of the cell?",
+                options: ["Nucleus", "Ribosome", "Mitochondrion", "Cell Wall"],
+                answer: "Mitochondrion"
+            },
+            {
+                question: "Which organelle is responsible for protein synthesis?",
+                options: ["Lysosome", "Vacuole", "Ribosome", "Golgi apparatus"],
+                answer: "Ribosome"
+            },
+            {
+                question: "What part of a plant cell is a rigid layer that provides structural support?",
+                options: ["Cell membrane", "Cytoplasm", "Nucleus", "Cell wall"],
+                answer: "Cell wall"
+            },
+            {
+                question: "Red blood cells lack which major organelle in mammals?",
+                options: ["Mitochondria", "Nucleus", "Ribosomes", "Endoplasmic Reticulum"],
+                answer: "Nucleus"
+            },
+            {
+                question: "What is the main function of white blood cells?",
+                options: ["Transporting oxygen", "Fighting infection", "Clotting blood", "Carrying nutrients"],
+                answer: "Fighting infection"
+            }
+        ],
+        
+        
+        
+   system: [
+        {
+            question: "What is the primary function of the circulatory system?",
+            options: ["Digestion of food", "Gas exchange", "Transport of nutrients and oxygen", "Production of hormones"],
+            answer: "Transport of nutrients and oxygen"
+        },
+        {
+            question: "Which body system is responsible for breaking down food and absorbing nutrients?",
+            options: ["Nervous system", "Skeletal system", "Digestive system", "Respiratory system"],
+            "answer": "Digestive system"
+        },
+        {
+            question: "The brain, spinal cord, and nerves are all part of which body system?",
+            options: ["Endocrine system", "Nervous system", "Lymphatic system", "Integumentary system"],
+            answer: "Nervous system"
+        },
+        {
+            question: "Which of the following is the main function of the respiratory system?",
+            options: ["Filtering waste from blood", "Providing support and protection", "Exchanging oxygen and carbon dioxide", "Regulating body temperature"],
+            answer: "Exchanging oxygen and carbon dioxide"
+        },
+        {
+            question: "The skeletal system's primary role includes providing support and what other key function?",
+            options: ["Breaking down food", "Producing hormones", "Protecting internal organs", "Generating body heat"],
+            answer: "Protecting internal organs"
+        },
+        {
+            question: "What is the main role of the excretory system?",
+            options: ["Regulating blood pressure", "Eliminating waste products from the body", "Storing energy", "Controlling muscle movement"],
+            answer: "Eliminating waste products from the body"
+        },
+        {
+           question: "Which body system produces hormones to regulate various bodily functions?",
+            options: ["Muscular system", "Urinary system", "Endocrine system", "Reproductive system"],
+            answer: "Endocrine system"
+        },
+        {
+            question: "The skin, hair, and nails are components of which body system?",
+            options: ["Integumentary system", "Immune system", "Circulatory system", "Nervous system"],
+            answer: "Integumentary system"
+        },
+        {
+            question: "What is the main function of the muscular system?",
+            options: ["Fighting off infections", "Enabling movement", "Absorbing water", "Producing blood cells"],
+            answer: "Enabling movement"
+        },
+        {
+            question: "Which body system defends the body against disease-causing agents?",
+            options: ["Digestive system", "Reproductive system", "Immune system", "Skeletal system"],
+            answer: "Immune system"
+        }
+    ], 
+
+
+        organ: [
+            {
+                question: "The bicuspid valve is located in which part of the mammalian heart?",
+                options: ["Right atrium and ventricle", "Left atrium and ventricle", "Aorta", "Pulmonary artery"],
+                answer: "Left atrium and ventricle"
+            },
+            {
+                question: "What part of the mammalian eye focuses light onto the retina?",
+                options: ["Cornea", "Iris", "Lens", "Pupil"],
+                answer: "Lens"
+            },
+            {
+                question: "The Eustachian tube connects the middle ear to which body part?",
+                options: ["Outer ear", "Inner ear", "Nose", "Throat"],
+                answer: "Throat"
+            },
+            {
+                question: "Which vitamin does the skin synthesize with exposure to sunlight?",
+                options: ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"],
+                answer: "Vitamin D"
+            },
+            {
+                question: "Which organ produces bile to aid in digestion?",
+                options: ["Stomach", "Pancreas", "Gallbladder", "Liver"],
+                answer: "Liver"
+            }
+        ]
+    };
+
+    function displayQuiz(quizType) {
+        const container = document.getElementById(`${quizType}-quiz-container`);
+        container.innerHTML = '';
+        container.style.display = 'block';
+
+        // Display current high score
+        const highScore = localStorage.getItem(`score_${quizType}`) || '0';
+        const scoreDisplay = document.createElement('p');
+        scoreDisplay.innerHTML = `<strong>Your best score for this quiz is: ${highScore}%</strong>`;
+        scoreDisplay.style.color = 'green';
+        container.appendChild(scoreDisplay);
+
+        const quizQuestions = quizzes[quizType];
+        quizQuestions.forEach((q, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('quiz-question');
+            questionDiv.innerHTML = `<p><strong>${index + 1}. ${q.question}</strong></p>`;
+            
+            q.options.forEach(option => {
+                const label = document.createElement('label');
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = `${quizType}-q${index}`;
+                radio.value = option;
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(option));
+                questionDiv.appendChild(label);
+            });
+            container.appendChild(questionDiv);
+        });
+
+        const submitButton = document.createElement('button');
+        submitButton.textContent = 'Submit Answers';
+        submitButton.onclick = () => checkAnswers(quizType);
+        container.appendChild(submitButton);
+    }
+
+    function checkAnswers(quizType) {
+        let correctCount = 0;
+        const quizQuestions = quizzes[quizType];
+        
+        quizQuestions.forEach((q, index) => {
+            const selectedOption = document.querySelector(`input[name="${quizType}-q${index}"]:checked`);
+            if (selectedOption && selectedOption.value === q.answer) {
+                correctCount++;
+            }
+        });
+
+        const totalQuestions = quizQuestions.length;
+        const percentageScore = (correctCount / totalQuestions) * 100;
+        
+        const completionMessage = document.getElementById(`${quizType}-quiz-completed`);
+        const oldScore = parseFloat(localStorage.getItem(`score_${quizType}`) || 0);
+
+        let message = `You scored ${percentageScore.toFixed(0)}%!`;
+
+        if (percentageScore > oldScore) {
+            localStorage.setItem(`score_${quizType}`, percentageScore.toFixed(0));
+            message += " 🎉 New high score!";
+        } else if (percentageScore === oldScore && percentageScore > 0) {
+            message += " You matched your high score!";
+        } else {
+            message += " Keep trying to beat your high score!";
+        }
+
+        if (percentageScore === 100) {
+            message += " Perfect score! All answers are correct!";
+        }
+
+        completionMessage.style.display = 'block';
+        completionMessage.innerHTML = message;
+
+    }
+
+    document.getElementById('intro').addEventListener('click', () => displayQuiz('intro'));
+    document.getElementById('cell').addEventListener('click', () => displayQuiz('cell'));
+      document.getElementById('system').addEventListener('click', () => displayQuiz('system'));
+    document.getElementById('organ').addEventListener('click', () => displayQuiz('organ'));
+        document.getElementById('classification').addEventListener('click', () => displayQuiz('classification'));
+    document.getElementById('genetics').addEventListener('click', () => displayQuiz('genetics'));
+        document.getElementById('ecology').addEventListener('click', () => displayQuiz('ecology'));
+
+
+    window.onload = updateGreeting;
+</script><style>
+
+
+ #down {
+    /* Use a more professional color. A dark, slightly transparent green is good for a biology theme. */
+    background: rgba(0, 54, 0, 0.9);
+    border: none;
+    /* Use a fixed position so the navigation stays at the top when users scroll. This is more reliable than sticky. */
+    position: sticky;
+    top:100px;
+    width: 100%; /* Make the navigation bar span the full width of the page. */
+    z-index: 1000; /* Use a high z-index to ensure the navigation bar is always on top of other content. */
+    padding: 10px 0; /* Add some padding to give the links breathing room. */
+    text-align: center; /* Center the text for a clean, modern look. */
+}
+
+/* Style the links to be more visible and professional. */
+#down a {
+    color: greenyellow; /* The color is good, keeping it. */
+    /* Remove the underline for a cleaner look. */
+    font-weight: bold; /* Make the links bold to stand out. */
+    margin: 0 15px; /* Add horizontal spacing between the links. */
+    font-size: 1.1em; /* Make the font slightly larger for better readability. */
+    transition: color 0.3s ease; /* Add a smooth color transition effect on hover. */
+}
+
+/* Change the link color when a user hovers over it. This provides good visual feedback. */
+#down a:hover {
+    color: #ccff00; /* A brighter shade of green for a nice hover effect. */
+}
+
+
+
+</style>
+
+
+
+</body>
+</html>
