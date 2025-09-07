@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Science Quiz</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #D5FFC7; 
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .quiz-card {
+            position: relative; /* Added for star positioning */
+            background-color: #f0f8ff;
+
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, );
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #005a8b;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 25px;
+            line-height: 1.5;
+        }
+        .answers { 
+            list-style-type: none; 
+            padding: 0; 
+            margin-top: 10px;
+        }
+        .answers li {
+            background-color: #eaf1f7;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+        }
+        .answers li:hover {
+            background-color: #dbe7f2;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+        #result-container {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f8ff;
+;
+            border-radius: 8px;
+            display: none; /* Initially hidden */
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+        #star-container {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2em;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-card">
+        <div id="star-container"></div>
+        <h1>Science & Nature Quiz</h1>
+        <div id="quiz-container">Loading quiz...</div>
+        <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+        <div id="result-container"></div>
+    </div>
+
+    <script>
+        const quizContainer = document.getElementById('quiz-container');
+        const resultContainer = document.getElementById('result-container');
+        const starContainer = document.getElementById('star-container');
+        
+        let questionsData = [];
+        let totalCorrectAnswers = parseInt(localStorage.getItem('totalCorrectAnswers')) || 0;
+        let starCount = Math.floor(totalCorrectAnswers / 5);
+
+        // Function to shuffle an array (for answer choices)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Display stars on page load
+        function displayStars() {
+            let starsHTML = '';
+            for (let i = 0; i < starCount; i++) {
+                starsHTML += '⭐';
+            }
+            starContainer.innerHTML = starsHTML;
+        }
+
+        // Inform the user about the star system
+        window.onload = function() {
+alert("Welcome to the Science & Nature Random Quiz! Earn a ⭐ for every 5 correct answers. Your progress is saved!");
+
+            displayStars();
+        };
+
+        // Fetch quiz data from the API
+        fetch('https://opentdb.com/api.php?amount=10&category=17&type=multiple')
+            .then(response => response.json())
+            .then(data => {
+                questionsData = data.results;
+                let quizHTML = '';
+                questionsData.forEach((q, index) => {
+                    // Decode HTML entities
+                    const decodedQuestion = new DOMParser().parseFromString(q.question, 'text/html').body.textContent;
+                    const decodedCorrect = new DOMParser().parseFromString(q.correct_answer, 'text/html').body.textContent;
+                    const decodedIncorrect = q.incorrect_answers.map(ans => new DOMParser().parseFromString(ans, 'text/html').body.textContent);
+
+                    const answers = [...decodedIncorrect, decodedCorrect];
+                    shuffleArray(answers);
+
+                    quizHTML += `<div class="question" data-question-index="${index}">${decodedQuestion}</div><ul class="answers">`;
+                    answers.forEach(answer => {
+                        quizHTML += `<li><input type="radio" name="question-${index}" value="${answer}">${answer}</li>`;
+                    });
+                    quizHTML += `</ul>`;
+                });
+                quizContainer.innerHTML = quizHTML;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                quizContainer.innerHTML = '<p>Failed to load quiz. Please try again later.</p>';
+            });
+
+        // Function to handle quiz submission
+        function submitQuiz() {
+            let sessionCorrect = 0;
+            questionsData.forEach((q, index) => {
+                const selectedAnswer = document.querySelector(`input[name="question-${index}"]:checked`);
+                const decodedCorrect = new DOMParser().parseFromString(q.correct_answer, 'text/html').body.textContent;
+                
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === decodedCorrect) {
+                        sessionCorrect++;
+                    }
+                }
+            });
+
+            // Update total correct answers and stars
+            const oldTotalCorrect = totalCorrectAnswers;
+            totalCorrectAnswers += sessionCorrect;
+            localStorage.setItem('totalCorrectAnswers', totalCorrectAnswers);
+            
+            const oldStarCount = starCount;
+            starCount = Math.floor(totalCorrectAnswers / 5);
+
+            // Display results
+            resultContainer.textContent = `You scored ${sessionCorrect} out of ${questionsData.length}!`;
+            resultContainer.style.display = 'block';
+
+            // Check if a new star was earned
+            if (starCount > oldStarCount) {
+                alert(`Congratulations! You've earned a new star! You now have ${starCount} ⭐.`);
+            }
+
+            // Update the star display
+            displayStars();
+        }
+    </script>
+
+</body>
+</html>
